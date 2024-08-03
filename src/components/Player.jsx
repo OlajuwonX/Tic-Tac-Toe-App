@@ -1,12 +1,17 @@
 import { useState } from "react";
 
-export default function Player({ initialName, symbol, isActive, onChangeName }) {
+export default function Player({
+  initialName,
+  symbol,
+  isActive,
+  onChangeName,
+}) {
   const [playerName, setPlayerName] = useState(initialName);
   const [isEditing, setIsEditing] = useState(false);
 
   function handleEditClick() {
     setIsEditing((editing) => !editing); // => schedules a state update to true. This is the best practice.
-     
+
     if (isEditing) {
       onChangeName(symbol, playerName);
     }
@@ -21,15 +26,16 @@ export default function Player({ initialName, symbol, isActive, onChangeName }) 
 
   if (isEditing) {
     editablePlayerName = (
-      <input type="text" required Value={playerName} onChange={handleChange} />
+      <input type="text" required value={playerName} onChange={handleChange} />
     );
+
     // using defaultvalue={}, allows the displayed valueText to be re-edited.
     // btnCaption = 'Save'; (this is another way to change the btn caption from Edit to Save.)
   }
 
   return (
-    <li>
-      <span className={isActive ? 'active' : undefined}>
+    <li className={isActive ? "active" : undefined}>
+      <span className="player">
         {editablePlayerName}
         <span className="player-symbol">{symbol}</span>
       </span>

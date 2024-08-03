@@ -34,3 +34,5 @@ export default function GameBoard({ onSelectSquare, board }) {
     }); // goal is to update the previous state of the gameboard to the new state that the players have chosen. ie changes the null to either X or O.
     onSelectSquare(); // to execute a function that was called from outside of the gameboard component, inside of the gameboard component.
 } */
+
+// a key is needed fo the boxes to be identified in a unique way
